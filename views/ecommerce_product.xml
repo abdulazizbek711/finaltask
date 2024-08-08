@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <template id="ecommerce_product" name="Ecommerce Product">
+            <form>
+                <label for="uzum_url">Uzum URL:</label>
+                <input type="text" id="uzum_url" name="uzum_url"/>
+                <button type="button" id="fetch_data_btn">Fetch Product Data</button>
+            </form>
+            <div id="product_data">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" readonly="readonly"/>
+                <br/>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" readonly="readonly"></textarea>
+                <br/>
+                <label for="rating">Rating:</label>
+                <input type="text" id="rating" name="rating" readonly="readonly"/>
+                <br/>
+                <label for="image">Image:</label>
+                <img id="image" src=""/>
+            </div>
+        </template>
+    </data>
+</odoo>

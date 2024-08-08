@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <!-- Form View Definition -->
+        <record id="view_ecommerce_product_form" model="ir.ui.view">
+            <field name="name">ecommerce.product.form</field>
+            <field name="model">ecommerce.product</field>
+            <field name="arch" type="xml">
+                <form string="Product Details">
+                    <sheet>
+                    <group>
+                        <field name="uzum_url" on_change="onchange_uzum_url(uzum_url)"/>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                        <field name="rating"/>
+                    </group>
+                    <field name="image_url" widget="image" options="{'size': [250,250]}" invisible="1"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View Definition -->
+        <record id="view_ecommerce_product_tree" model="ir.ui.view">
+            <field name="name">ecommerce.product.tree</field>
+            <field name="model">ecommerce.product</field>
+            <field name="arch" type="xml">
+                <tree string="Ecommerce Product List">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="rating"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action Definition -->
+        <record model="ir.actions.act_window" id="action_ecommerce_project">
+            <field name="name">Ecommerce Project</field>
+            <field name="res_model">ecommerce.product</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_ecommerce_product_tree"/>
+        </record>
+
+        <!-- Menu Definition -->
+        <menuitem id="menu_products" name="Products" sequence="10"/>
+        <menuitem id="submenu_products" name="Products" parent="menu_products" action="action_ecommerce_project" sequence="10"/>
+    </data>
+</odoo>
